@@ -56,8 +56,25 @@ class PosterManagerTest {
         manager.addMovie("Bloodshot");
         manager.addMovie("Onward");
         manager.addMovie("Belgrade Hotel");
+
+
+        String[] expected = { "Belgrade Hotel", "Onward", "Bloodshot" };
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals( expected, actual);
+    }
+
+    @Test
+
+    public void testFindLastOverLimit() {
+
+        manager.addMovie("Bloodshot");
+        manager.addMovie("Onward");
+        manager.addMovie("Belgrade Hotel");
         manager.addMovie("The Gentlemen");
         manager.addMovie("The Invisible Man");
+        manager.addMovie("Trolls");
+        manager.addMovie("Number 1");
 
 
         String[] expected = { "The Invisible Man", "The Gentlemen","Belgrade Hotel", "Onward", "Bloodshot" };

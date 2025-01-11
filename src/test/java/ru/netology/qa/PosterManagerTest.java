@@ -51,7 +51,7 @@ class PosterManagerTest {
 
     @Test
 
-    public void testFindLast() {
+    public void testFindLastUnderLimit() {
 
         manager.addMovie("Bloodshot");
         manager.addMovie("Onward");
@@ -83,4 +83,20 @@ class PosterManagerTest {
         Assertions.assertArrayEquals( expected, actual);
     }
 
+    @Test
+
+    public void testFindLastEqualLimit() {
+
+        manager.addMovie("Bloodshot");
+        manager.addMovie("Onward");
+        manager.addMovie("Belgrade Hotel");
+        manager.addMovie("The Gentlemen");
+        manager.addMovie("The Invisible Man");
+
+
+        String[] expected = { "The Invisible Man", "The Gentlemen","Belgrade Hotel", "Onward", "Bloodshot"  };
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals( expected, actual);
+    }
 }
